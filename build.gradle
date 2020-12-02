@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        maven { url 'http://developer.huawei.com/repo/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
+
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://developer.huawei.com/repo/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        //自定认组件库
+        maven {
+            url 'http://sharesdk.jlpay.com/repository/android-private/'       //生产
+            credentials {
+                username = 'public'
+                password = 'P1ic223zk'
+            }
+        }
+        maven {
+            url 'http://sharesdk.jlpay.com/repository/android-private-snapshot/'       //测试
+            credentials {
+                username = 'report'
+                password = 'R86c12893x'
+            }
+        }
+
+        jcenter()
+        maven { url 'https://jitpack.io' }
+
+        flatDir {
+//            dirs project(':features').file('libs')
+            dirs 'libs'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
