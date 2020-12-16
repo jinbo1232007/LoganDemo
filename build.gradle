@@ -5,6 +5,7 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }//h
         jcenter()
         maven { url 'https://jitpack.io' }
         mavenCentral()
@@ -14,6 +15,9 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+
+        // 添加emas-services插件
+        classpath 'com.aliyun.ams:emas-services:1.0.1'
     }
 }
 
@@ -24,6 +28,7 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
         //自定认组件库
         maven {
             url 'http://sharesdk.jlpay.com/repository/android-private/'       //生产

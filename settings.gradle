@@ -1,1 +1,2 @@
+include ':aliyun_emas'
 include ':logan'
